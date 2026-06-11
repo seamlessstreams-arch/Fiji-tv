@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fiji TV — Live TV channels, sports, movies, news and more from the Pacific." />
+  <title>Fiji TV — Watch Live</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="Fiji TV home">
+        <!-- TV icon -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 3H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5v2h8v-2h5a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 14H3V5h18v12z"/>
+        </svg>
+        <span>Fiji<span class="tv-suffix">TV</span></span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#channels" class="active">Channels</a>
+        <a href="#guide">TV Guide</a>
+        <a href="#sports">Sports</a>
+        <a href="#movies">Movies</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="search-bar" role="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search channels…"
+            aria-label="Search channels"
+            autocomplete="off"
+          />
+        </div>
+
+        <span id="liveClock" aria-live="polite" aria-atomic="true" style="font-size:.85rem;color:var(--color-text-muted);min-width:80px;text-align:right;"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <section class="hero" aria-label="Welcome">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1>Watch the <span class="highlight">Pacific</span><br/>from anywhere.</h1>
+        <p>Stream live Fijian TV channels, sports, movies, and breaking news — all in one place.</p>
+        <div class="hero-actions">
+          <a href="#channels" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            Watch Now
+          </a>
+          <a href="#guide" class="btn btn-ghost">TV Guide</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Channels</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Live</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">HD</div>
+            <div class="stat-label">Quality</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="tv-mockup">
+          <div class="tv-screen">
+            <div class="play-icon" role="presentation">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="tv-screen-label">Live TV · Fiji One</span>
+          </div>
+          <div class="tv-bar">
+            <span class="live-badge">LIVE</span>
+            <span class="channel-name">Fiji One — Morning News</span>
+            <span class="channel-time" id="liveClock2"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Main ───────────────────────────────────────────── -->
+  <main>
+
+    <!-- Category Filter -->
+    <div class="category-filter" role="group" aria-label="Filter channels by category">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="general">General</button>
+      <button class="category-btn" data-category="news">News</button>
+      <button class="category-btn" data-category="sports">Sports</button>
+      <button class="category-btn" data-category="movies">Movies</button>
+      <button class="category-btn" data-category="kids">Kids</button>
+      <button class="category-btn" data-category="music">Music</button>
+      <button class="category-btn" data-category="docs">Documentaries</button>
+    </div>
+
+    <!-- Channel Grid -->
+    <section id="channels" class="section" aria-label="Live channels">
+      <div class="section-header">
+        <h2 class="section-title">Live Channels</h2>
+        <a href="#" class="section-link">View all →</a>
+      </div>
+      <div class="channel-grid" id="channelGrid" role="list">
+        <!-- Populated by app.js -->
+      </div>
+    </section>
+
+    <!-- TV Guide -->
+    <section id="guide" class="section" aria-label="Today's TV guide">
+      <div class="section-header">
+        <h2 class="section-title">Today's Guide</h2>
+      </div>
+      <div style="overflow-x:auto;border:1px solid var(--color-border);border-radius:var(--radius);">
+        <table class="epg-table" aria-label="Electronic programme guide">
+          <thead>
+            <tr>
+              <th scope="col">Time</th>
+              <th scope="col">Programme</th>
+              <th scope="col">Channel</th>
+              <th scope="col">Duration</th>
+            </tr>
+          </thead>
+          <tbody id="epgBody">
+            <!-- Populated by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Fiji<span class="tv-suffix">TV</span></span>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="#">About</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </nav>
+      <span class="footer-copy">&copy; 2026 FijiTV. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
