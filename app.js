@@ -90,7 +90,7 @@
           aria-label="Watch ${ch.name}"
           onclick="FijiTV.openChannel(${ch.id})">
           <div class="channel-thumb">
-            <span class="channel-logo" aria-hidden="true">${ch.emoji}</span>
+            <span class="channel-logo" role="img" aria-label="${ch.name} logo">${ch.emoji}</span>
             <span class="ch-num" aria-hidden="true">${ch.id}</span>
             <div class="channel-status">${badges}</div>
           </div>
